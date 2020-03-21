@@ -16,7 +16,6 @@ Simple Coffee Shop Management System is an application which is created with Win
 
  - Database Connectivity
  - Improve GUI
- - 
 
 License
 ----
