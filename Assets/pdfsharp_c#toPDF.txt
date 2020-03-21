@@ -1,0 +1,115 @@
+using System;
+
+using System.Windows.Forms;
+
+using System.Diagnostics;
+
+using PdfSharp;
+
+using PdfSharp.Drawing;
+
+using PdfSharp.Pdf;
+
+using System.IO;
+
+
+
+namespace WindowsFormsApplication1
+
+{
+
+    public partial class Form1 : Form
+
+    {
+
+        public Form1()
+
+        {
+
+            InitializeComponent();
+
+        }
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+
+        {
+
+            try
+
+            {
+
+                string line = null;
+
+                System.IO.TextReader readFile = new StreamReader("Text.txt");
+
+                int yPoint = 0;
+
+
+
+                PdfDocument pdf = new PdfDocument();
+
+                pdf.Info.Title = "TXT to PDF";
+
+                PdfPage pdfPage = pdf.AddPage();
+
+                XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+
+                XFont font = new XFont("Verdana", 20, XFontStyle.Regular );
+
+
+
+                while (true)
+
+                {
+
+                    line = readFile.ReadLine();
+
+                    if (line == null)
+
+                    {
+
+                        break; // TODO: might not be correct. Was : Exit While
+
+                    }
+
+                    else
+
+                    {
+
+                        graph.DrawString(line, font, XBrushes.Black, new XRect(40, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+
+                        yPoint = yPoint + 40;
+
+                    }
+
+                }
+
+
+
+                string pdfFilename = "txttopdf.pdf";
+
+                pdf.Save(pdfFilename);
+
+                readFile.Close();
+
+                readFile = null; 
+
+                Process.Start(pdfFilename);
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show(ex.ToString());
+
+            }
+
+        }
+
+    }
+
+}

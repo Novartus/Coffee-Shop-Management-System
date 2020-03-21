@@ -1,0 +1,14 @@
++-------------------------------------+
+Simple Coffee: Rs.50 x 0 = Rs.0
+Hot Coco: Rs.90 x 0 = Rs.0
+Total Cash for this Bill: 0 
++-------------------------------------+
+
+
++-------------------------------------+
+Simple Coffee: Rs.50 x 0 = Rs.0
+Hot Coco: Rs.90 x 0 = Rs.0
+Total Cash for this Bill: 0 
++-------------------------------------+
+
+

@@ -1,0 +1,16 @@
+using iText.Pdfa;
+using iText.IO;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+
+
+var exportFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+var exportFile =System.IO.Path.Combine(exportFolder, "Test.pdf");
+
+using (var writer = new PdfWriter(exportFile)){
+using (var pdf = new PdfDocument(writer)){
+var doc= new Document(pdf);
+doc.Add(new Paragraph("HELLO"));
+}
+}
